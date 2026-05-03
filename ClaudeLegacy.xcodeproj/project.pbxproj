@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE123A592F5EDE2C008A1A3A /* Polyfills in Resources */ = {isa = PBXBuildFile; fileRef = CE123A582F5EDE2C008A1A3A /* Polyfills */; };
 		CE123A5C2F5EDE2D008A1A3A /* PolyfillsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE123A5B2F5EDE2D008A1A3A /* PolyfillsLoader.m */; };
+		CE7A75962FA6190100D473F0 /* legacy-transpiler.js in Resources */ = {isa = PBXBuildFile; fileRef = CE7A75952FA6190100D473F0 /* legacy-transpiler.js */; };
 		CEADC8192F5E8F26000F74EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8182F5E8F26000F74EA /* AppDelegate.m */; };
 		CEADC81D2F5E8F26000F74EA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = CEADC81B2F5E8F26000F74EA /* Main.html */; };
 		CEADC81F2F5E8F26000F74EA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CEADC81E2F5E8F26000F74EA /* Icon.png */; };
@@ -32,7 +33,6 @@
 		CEADC8622F5E8F29000F74EA /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8612F5E8F29000F74EA /* popup.css */; };
 		CEADC8642F5E8F29000F74EA /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8632F5E8F29000F74EA /* popup.js */; };
 		CEADC8662F5E8F29000F74EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEADC82E2F5E8F29000F74EA /* Assets.xcassets */; };
-		E99C77C02F7D64AD00773982 /* legacy-transpiler.js in Resources */ = {isa = PBXBuildFile; fileRef = E99C77BF2F7D64AD00773982 /* legacy-transpiler.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +77,7 @@
 		CE123A582F5EDE2C008A1A3A /* Polyfills */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Polyfills; path = "Polyfills/layout/Library/Application Support/Polyfills"; sourceTree = "<group>"; };
 		CE123A5A2F5EDE2D008A1A3A /* PolyfillsLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolyfillsLoader.h; sourceTree = "<group>"; };
 		CE123A5B2F5EDE2D008A1A3A /* PolyfillsLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolyfillsLoader.m; sourceTree = "<group>"; };
+		CE7A75952FA6190100D473F0 /* legacy-transpiler.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "legacy-transpiler.js"; sourceTree = "<group>"; };
 		CEADC8142F5E8F26000F74EA /* ClaudeLegacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaudeLegacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEADC8172F5E8F26000F74EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEADC8182F5E8F26000F74EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		CEADC8612F5E8F29000F74EA /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		CEADC8632F5E8F29000F74EA /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		CEADC8652F5E8F29000F74EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E99C77BF2F7D64AD00773982 /* legacy-transpiler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "legacy-transpiler.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +182,8 @@
 				CEADC82B2F5E8F26000F74EA /* Main.storyboard */,
 				CEADC82E2F5E8F29000F74EA /* Assets.xcassets */,
 				CEADC82F2F5E8F29000F74EA /* Info.plist */,
+				CE7A75952FA6190100D473F0 /* legacy-transpiler.js */,
 				CEADC8302F5E8F29000F74EA /* main.m */,
-				E99C77BF2F7D64AD00773982 /* legacy-transpiler.js */,
 				CEADC81A2F5E8F26000F74EA /* Resources */,
 			);
 			path = ClaudeLegacy;
@@ -373,7 +373,7 @@
 				CEADC82D2F5E8F26000F74EA /* Main.storyboard in Resources */,
 				CEADC82A2F5E8F26000F74EA /* LaunchScreen.storyboard in Resources */,
 				CEADC81D2F5E8F26000F74EA /* Main.html in Resources */,
-				E99C77C02F7D64AD00773982 /* legacy-transpiler.js in Resources */,
+				CE7A75962FA6190100D473F0 /* legacy-transpiler.js in Resources */,
 				CEADC8662F5E8F29000F74EA /* Assets.xcassets in Resources */,
 				CEADC8212F5E8F26000F74EA /* Style.css in Resources */,
 			);
@@ -670,7 +670,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = R743P2D925;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClaudeLegacy/Info.plist;
@@ -685,7 +685,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -705,7 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = R743P2D925;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClaudeLegacy/Info.plist;
@@ -720,7 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

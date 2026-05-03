@@ -4,7 +4,7 @@
 //
 //  Created by Efimov.mg on 23/2/2026.
 //
-
+#import <objc/runtime.h>
 #import "ViewController.h"
 #import "PolyfillsLoader.h"
 
@@ -27,6 +27,22 @@
         WKUserScript *userScript = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
         [_webView.configuration.userContentController addUserScript:userScript];
     }
+}
+
+- (void)injectIOSVersion {
+    NSOperatingSystemVersion version = [[NSProcessInfo processInfo] operatingSystemVersion];
+    NSString *versionString = [NSString stringWithFormat:@"%ld.%ld",
+                               (long)version.majorVersion,
+                               (long)version.minorVersion];
+    
+    NSString *js = [NSString stringWithFormat:
+                    @"window.iosVersion = %@;",
+                    [self jsStringLiteral:versionString]];
+    
+    WKUserScript *script = [[WKUserScript alloc] initWithSource:js
+                                                  injectionTime:WKUserScriptInjectionTimeAtDocumentStart
+                                               forMainFrameOnly:YES];
+    [_webView.configuration.userContentController addUserScript:script];
 }
 
 - (void) injectTranspiler {
@@ -81,6 +97,7 @@
     
     [self.webView.configuration.userContentController addScriptMessageHandler:self name:@"patchScript"];
     
+    [self injectIOSVersion];
     [self injectCustomCSS];
     [self injectTranspiler];
     [self injectPatch];

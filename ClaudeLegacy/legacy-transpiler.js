@@ -7191,7 +7191,7 @@ var LegacyTranspiler = (() => {
   };
   function mutateNode(target, replacement) {
     for (const key of Object.keys(target)) {
-      delete target[key];
+      Reflect.deleteProperty(target, key);
     }
     Object.assign(target, replacement);
   }
@@ -7324,35 +7324,40 @@ var LegacyTranspiler = (() => {
           end: 0
         };
       });
+      const windowId = { type: "Identifier", name: "window", start: 0, end: 0 };
+      const ltId = { type: "Identifier", name: "LegacyTranspiler", start: 0, end: 0 };
+      const exportModuleId = { type: "Identifier", name: "exportModule", start: 0, end: 0 };
+      const innerMember = {
+        type: "MemberExpression",
+        object: windowId,
+        property: ltId,
+        computed: false,
+        optional: false,
+        start: 0,
+        end: 0
+      };
+      const outerMember = {
+        type: "MemberExpression",
+        object: innerMember,
+        property: exportModuleId,
+        computed: false,
+        optional: false,
+        start: 0,
+        end: 0
+      };
+      const srcLiteral = { type: "Literal", value: options2.src, start: 0, end: 0 };
+      const objExpr = { type: "ObjectExpression", properties: props, start: 0, end: 0 };
+      const callExpr = {
+        type: "CallExpression",
+        callee: outerMember,
+        arguments: [srcLiteral, objExpr],
+        optional: false,
+        start: 0,
+        end: 0
+      };
       const callStatement = {
         type: "ExpressionStatement",
-        expression: {
-          type: "CallExpression",
-          callee: {
-            type: "MemberExpression",
-            object: {
-              type: "MemberExpression",
-              object: { type: "Identifier", name: "window", start: 0, end: 0 },
-              property: { type: "Identifier", name: "LegacyTranspiler", start: 0, end: 0 },
-              computed: false,
-              optional: false,
-              start: 0,
-              end: 0
-            },
-            property: { type: "Identifier", name: "exportModule", start: 0, end: 0 },
-            computed: false,
-            optional: false,
-            start: 0,
-            end: 0
-          },
-          arguments: [
-            { type: "Literal", value: options2.src, start: 0, end: 0 },
-            { type: "ObjectExpression", properties: props, start: 0, end: 0 }
-          ],
-          optional: false,
-          start: 0,
-          end: 0
-        },
+        expression: callExpr,
         start: 0,
         end: 0
       };
@@ -7362,56 +7367,215 @@ var LegacyTranspiler = (() => {
 
   // src/transforms/transformStaticBlock.ts
   var counter = 0;
-  function processClassStaticBlocks(classNode) {
+  var STATIC_BLOCK_METHOD_PREFIX = "_static_block__";
+  function makeCall(className, methodName) {
+    return {
+      type: "ExpressionStatement",
+      expression: {
+        type: "CallExpression",
+        callee: {
+          type: "MemberExpression",
+          object: { type: "Identifier", name: className, start: 0, end: 0 },
+          property: { type: "Identifier", name: methodName, start: 0, end: 0 },
+          computed: false,
+          optional: false,
+          start: 0,
+          end: 0
+        },
+        arguments: [],
+        optional: false,
+        start: 0,
+        end: 0
+      },
+      start: 0,
+      end: 0
+    };
+  }
+  function convertStaticBlocks(classNode, className) {
+    const calls = [];
     classNode.body.body = classNode.body.body.map((member) => {
       if (member.type !== "StaticBlock") return member;
-      const prop = {
-        type: "PropertyDefinition",
-        key: {
-          type: "PrivateIdentifier",
-          name: "_".concat(counter++),
-          start: member.start,
-          end: member.end
-        },
+      const methodName = "".concat(STATIC_BLOCK_METHOD_PREFIX).concat(counter++);
+      const method = {
+        type: "MethodDefinition",
+        key: { type: "Identifier", name: methodName, start: member.start, end: member.end },
         value: {
-          type: "CallExpression",
-          callee: {
-            type: "ArrowFunctionExpression",
-            id: null,
-            params: [],
-            body: {
-              type: "BlockStatement",
-              body: member.body,
-              start: member.start,
-              end: member.end
-            },
-            generator: false,
-            expression: false,
-            async: false,
+          type: "FunctionExpression",
+          id: null,
+          params: [],
+          body: {
+            type: "BlockStatement",
+            body: member.body,
             start: member.start,
             end: member.end
           },
-          arguments: [],
-          optional: false,
+          generator: false,
+          expression: false,
+          async: false,
           start: member.start,
           end: member.end
         },
+        kind: "method",
         computed: false,
         static: true,
         start: member.start,
         end: member.end
       };
-      return prop;
+      calls.push(makeCall(className, methodName));
+      return method;
     });
+    return calls;
+  }
+  function processStmt(stmt) {
+    var _a;
+    if (stmt.type === "ClassDeclaration" && stmt.id) {
+      const calls = convertStaticBlocks(stmt, stmt.id.name);
+      return calls.length > 0 ? [stmt, ...calls] : [stmt];
+    }
+    if (stmt.type === "VariableDeclaration") {
+      const extra = [];
+      for (const decl of stmt.declarations) {
+        if (((_a = decl.init) == null ? void 0 : _a.type) === "ClassExpression" && decl.id.type === "Identifier") {
+          extra.push(...convertStaticBlocks(decl.init, decl.id.name));
+        }
+      }
+      if (extra.length > 0) return [stmt, ...extra];
+    }
+    return [stmt];
   }
   function createStaticBlocksVisitor() {
     counter = 0;
     return {
+      Program(node) {
+        node.body = node.body.flatMap((stmt) => {
+          if (stmt.type === "ClassDeclaration" || stmt.type === "VariableDeclaration") {
+            return processStmt(stmt);
+          }
+          return [stmt];
+        });
+      },
+      BlockStatement(node) {
+        node.body = node.body.flatMap(processStmt);
+      }
+    };
+  }
+
+  // src/transforms/transformStaticClassField.ts
+  function extractStaticFields(classNode) {
+    const fields = [];
+    classNode.body.body = classNode.body.body.filter((member) => {
+      if (member.type === "PropertyDefinition" && member.static && member.key.type !== "PrivateIdentifier") {
+        fields.push({ key: member.key, value: member.value, computed: member.computed });
+        return false;
+      }
+      return true;
+    });
+    return fields;
+  }
+  function makeAssignment(className, field) {
+    var _a;
+    const object = { type: "Identifier", name: className, start: 0, end: 0 };
+    const left = {
+      type: "MemberExpression",
+      object,
+      property: field.key,
+      computed: field.computed,
+      optional: false,
+      start: 0,
+      end: 0
+    };
+    const fallback = { type: "Identifier", name: "undefined", start: 0, end: 0 };
+    const right = (_a = field.value) != null ? _a : fallback;
+    const expression = {
+      type: "AssignmentExpression",
+      operator: "=",
+      left,
+      right,
+      start: 0,
+      end: 0
+    };
+    return {
+      type: "ExpressionStatement",
+      expression,
+      start: 0,
+      end: 0
+    };
+  }
+  function processStmt2(stmt) {
+    var _a;
+    if (stmt.type === "ClassDeclaration" && stmt.id) {
+      const fields = extractStaticFields(stmt);
+      if (fields.length === 0) return [stmt];
+      return [stmt, ...fields.map((f) => makeAssignment(stmt.id.name, f))];
+    }
+    if (stmt.type === "VariableDeclaration") {
+      const extra = [];
+      for (const decl of stmt.declarations) {
+        if (((_a = decl.init) == null ? void 0 : _a.type) === "ClassExpression" && decl.id.type === "Identifier") {
+          const className = decl.id.name;
+          const fields = extractStaticFields(decl.init);
+          extra.push(...fields.map((f) => makeAssignment(className, f)));
+        }
+      }
+      if (extra.length > 0) return [stmt, ...extra];
+    }
+    return [stmt];
+  }
+  function createStaticClassFieldsVisitor() {
+    return {
+      Program(node) {
+        node.body = node.body.flatMap((stmt) => {
+          if (stmt.type === "ClassDeclaration" || stmt.type === "VariableDeclaration") {
+            return processStmt2(stmt);
+          }
+          return [stmt];
+        });
+      },
+      BlockStatement(node) {
+        node.body = node.body.flatMap(processStmt2);
+      }
+    };
+  }
+
+  // src/transforms/transformPrivateFields.ts
+  var PREFIX = "_private_field__";
+  function renamePrivate(node) {
+    return {
+      type: "Identifier",
+      name: PREFIX + node.name,
+      start: node.start,
+      end: node.end
+    };
+  }
+  function processClass(classNode) {
+    for (const member of classNode.body.body) {
+      if (member.type === "PropertyDefinition" && member.key.type === "PrivateIdentifier") {
+        member.key = renamePrivate(member.key);
+        member.computed = false;
+      } else if (member.type === "MethodDefinition" && member.key.type === "PrivateIdentifier") {
+        member.key = renamePrivate(member.key);
+        member.computed = false;
+      }
+    }
+  }
+  function createPrivateFieldsVisitor() {
+    return {
       ClassDeclaration(node) {
-        processClassStaticBlocks(node);
+        processClass(node);
       },
       ClassExpression(node) {
-        processClassStaticBlocks(node);
+        processClass(node);
+      },
+      MemberExpression(node) {
+        if (node.property.type === "PrivateIdentifier") {
+          node.property = renamePrivate(node.property);
+          node.computed = false;
+        }
+      },
+      BinaryExpression(node) {
+        if (node.operator === "in" && node.left.type === "PrivateIdentifier") {
+          node.left = renamePrivate(node.left);
+        }
       }
     };
   }
@@ -7454,15 +7618,17 @@ var LegacyTranspiler = (() => {
   function mergeVisitors(...visitors) {
     const merged = {};
     for (const visitor of visitors) {
-      for (const [nodeType, handler] of Object.entries(visitor)) {
-        if (merged[nodeType]) {
-          const prev = merged[nodeType];
-          merged[nodeType] = (node, state) => {
-            prev(node, state);
-            handler(node, state);
-          };
+      const entries = Object.entries(visitor);
+      for (const [nodeType, handler] of entries) {
+        if (typeof handler !== "function") continue;
+        const prev = Reflect.get(merged, nodeType);
+        if (typeof prev === "function") {
+          Reflect.set(merged, nodeType, (node, state) => {
+            prev.call(void 0, node, state);
+            handler.call(void 0, node, state);
+          });
         } else {
-          merged[nodeType] = handler;
+          Reflect.set(merged, nodeType, handler);
         }
       }
     }
@@ -7471,10 +7637,20 @@ var LegacyTranspiler = (() => {
 
   // src/index.ts
   var options;
+  function targetAtLeast(platform, min) {
+    var _a;
+    if (!options.target || options.target.platform !== platform) return false;
+    const parts = options.target.version.split(".");
+    const major = Number(parts[0]);
+    const minor = Number((_a = parts[1]) != null ? _a : 0);
+    if (Number.isNaN(major) || Number.isNaN(minor)) return false;
+    if (major !== min[0]) return major > min[0];
+    return minor >= min[1];
+  }
   var _moduleExports = {};
   var _importWaitlist = {};
   var loaded = /* @__PURE__ */ new Set();
-  patchFetch();
+  if (typeof window !== "undefined") patchFetch();
   var resolveModule = (source = "") => {
     const BASE_URL = options.BASE_URL;
     if (!source.startsWith("./")) {
@@ -7482,7 +7658,7 @@ var LegacyTranspiler = (() => {
     }
     return "".concat(BASE_URL, "/").concat(source.replace(/^\.\//, ""));
   };
-  var CACHE_NAME = "transpiled-v1";
+  var CACHE_NAME = "transpiled-v5";
   async function openCache() {
     if (typeof caches === "undefined") return null;
     try {
@@ -7550,13 +7726,19 @@ var LegacyTranspiler = (() => {
       allowAwaitOutsideFunction: true
     });
     transformStaticImports(ast);
-    const merged = mergeVisitors(
+    const visitors = [
       createDynamicImportsVisitor(),
       createImportMetaVisitor({ url: src }),
-      createLookbehindVisitor(),
-      createStaticBlocksVisitor()
-    );
-    simple(ast, merged);
+      createLookbehindVisitor()
+    ];
+    if (!targetAtLeast("iOS", [15, 0])) {
+      visitors.push(createPrivateFieldsVisitor());
+    }
+    visitors.push(createStaticBlocksVisitor());
+    if (!targetAtLeast("iOS", [15, 0])) {
+      visitors.push(createStaticClassFieldsVisitor());
+    }
+    simple(ast, mergeVisitors(...visitors));
     transformExports(ast, { src });
     transformWrapAsyncIIFE(ast);
     const result = generate(ast, options.minify ? { indent: "", lineEnd: "" } : void 0);
