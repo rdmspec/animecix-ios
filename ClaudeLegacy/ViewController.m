@@ -19,8 +19,7 @@
 @implementation ViewController
 
 - (void) injectPatch {
-    NSBundle *extensionBundle = [NSBundle bundleWithURL:[NSBundle.mainBundle URLForResource:@"ClaudeLegacy Extension" withExtension:@"appex" subdirectory:@"PlugIns"]];
-    NSURL *scriptURL = [extensionBundle URLForResource:@"content" withExtension:@"js"];
+    NSURL *scriptURL = [NSBundle.mainBundle URLForResource:@"patch" withExtension:@"js"];
     
     NSString *js = [NSString stringWithContentsOfURL:scriptURL encoding:NSUTF8StringEncoding error:nil];
     if (js) {

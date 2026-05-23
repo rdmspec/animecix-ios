@@ -11,9 +11,6 @@
 		CE123A5C2F5EDE2D008A1A3A /* PolyfillsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CE123A5B2F5EDE2D008A1A3A /* PolyfillsLoader.m */; };
 		CE7A75962FA6190100D473F0 /* legacy-transpiler.js in Resources */ = {isa = PBXBuildFile; fileRef = CE7A75952FA6190100D473F0 /* legacy-transpiler.js */; };
 		CEADC8192F5E8F26000F74EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8182F5E8F26000F74EA /* AppDelegate.m */; };
-		CEADC81D2F5E8F26000F74EA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = CEADC81B2F5E8F26000F74EA /* Main.html */; };
-		CEADC81F2F5E8F26000F74EA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CEADC81E2F5E8F26000F74EA /* Icon.png */; };
-		CEADC8212F5E8F26000F74EA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8202F5E8F26000F74EA /* Style.css */; };
 		CEADC8242F5E8F26000F74EA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8232F5E8F26000F74EA /* SceneDelegate.m */; };
 		CEADC8272F5E8F26000F74EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8262F5E8F26000F74EA /* ViewController.m */; };
 		CEADC82A2F5E8F26000F74EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8282F5E8F26000F74EA /* LaunchScreen.storyboard */; };
@@ -22,18 +19,9 @@
 		CEADC83B2F5E8F29000F74EA /* ClaudeLegacyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC83A2F5E8F29000F74EA /* ClaudeLegacyTests.m */; };
 		CEADC8452F5E8F29000F74EA /* ClaudeLegacyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8442F5E8F29000F74EA /* ClaudeLegacyUITests.m */; };
 		CEADC8472F5E8F29000F74EA /* ClaudeLegacyUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8462F5E8F29000F74EA /* ClaudeLegacyUITestsLaunchTests.m */; };
-		CEADC84D2F5E8F29000F74EA /* ClaudeLegacy Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CEADC84C2F5E8F29000F74EA /* ClaudeLegacy Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CEADC8532F5E8F29000F74EA /* SafariWebExtensionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8522F5E8F29000F74EA /* SafariWebExtensionHandler.m */; };
-		CEADC8562F5E8F29000F74EA /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8552F5E8F29000F74EA /* _locales */; };
-		CEADC8582F5E8F29000F74EA /* images in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8572F5E8F29000F74EA /* images */; };
-		CEADC85A2F5E8F29000F74EA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8592F5E8F29000F74EA /* manifest.json */; };
-		CEADC85C2F5E8F29000F74EA /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = CEADC85B2F5E8F29000F74EA /* background.js */; };
-		CEADC85E2F5E8F29000F74EA /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = CEADC85D2F5E8F29000F74EA /* content.js */; };
-		CEADC8602F5E8F29000F74EA /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = CEADC85F2F5E8F29000F74EA /* popup.html */; };
-		CEADC8622F5E8F29000F74EA /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8612F5E8F29000F74EA /* popup.css */; };
-		CEADC8642F5E8F29000F74EA /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = CEADC8632F5E8F29000F74EA /* popup.js */; };
 		CEADC8662F5E8F29000F74EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEADC82E2F5E8F29000F74EA /* Assets.xcassets */; };
 		CEFE628B2FA85C95003461AC /* inert.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CEFE628A2FA85C95003461AC /* inert.min.js */; };
+		E92D5D8E2FC17322005460E8 /* patch.js in Resources */ = {isa = PBXBuildFile; fileRef = CEADC85D2F5E8F29000F74EA /* patch.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +39,6 @@
 			remoteGlobalIDString = CEADC8132F5E8F26000F74EA;
 			remoteInfo = ClaudeLegacy;
 		};
-		CEADC84E2F5E8F29000F74EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CEADC80C2F5E8F26000F74EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CEADC84B2F5E8F29000F74EA;
-			remoteInfo = "ClaudeLegacy Extension";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,7 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				CEADC84D2F5E8F29000F74EA /* ClaudeLegacy Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,9 +62,6 @@
 		CEADC8142F5E8F26000F74EA /* ClaudeLegacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClaudeLegacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEADC8172F5E8F26000F74EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEADC8182F5E8F26000F74EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CEADC81C2F5E8F26000F74EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
-		CEADC81E2F5E8F26000F74EA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		CEADC8202F5E8F26000F74EA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		CEADC8222F5E8F26000F74EA /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		CEADC8232F5E8F26000F74EA /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		CEADC8252F5E8F26000F74EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -99,18 +76,7 @@
 		CEADC8402F5E8F29000F74EA /* ClaudeLegacyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClaudeLegacyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEADC8442F5E8F29000F74EA /* ClaudeLegacyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaudeLegacyUITests.m; sourceTree = "<group>"; };
 		CEADC8462F5E8F29000F74EA /* ClaudeLegacyUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaudeLegacyUITestsLaunchTests.m; sourceTree = "<group>"; };
-		CEADC84C2F5E8F29000F74EA /* ClaudeLegacy Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ClaudeLegacy Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEADC8512F5E8F29000F74EA /* SafariWebExtensionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafariWebExtensionHandler.h; sourceTree = "<group>"; };
-		CEADC8522F5E8F29000F74EA /* SafariWebExtensionHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafariWebExtensionHandler.m; sourceTree = "<group>"; };
-		CEADC8552F5E8F29000F74EA /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
-		CEADC8572F5E8F29000F74EA /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
-		CEADC8592F5E8F29000F74EA /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
-		CEADC85B2F5E8F29000F74EA /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
-		CEADC85D2F5E8F29000F74EA /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
-		CEADC85F2F5E8F29000F74EA /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
-		CEADC8612F5E8F29000F74EA /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
-		CEADC8632F5E8F29000F74EA /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
-		CEADC8652F5E8F29000F74EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEADC85D2F5E8F29000F74EA /* patch.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = patch.js; sourceTree = "<group>"; };
 		CEFE628A2FA85C95003461AC /* inert.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inert.min.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,13 +102,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEADC8492F5E8F29000F74EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,7 +112,6 @@
 				CEADC8162F5E8F26000F74EA /* ClaudeLegacy */,
 				CEADC8392F5E8F29000F74EA /* ClaudeLegacyTests */,
 				CEADC8432F5E8F29000F74EA /* ClaudeLegacyUITests */,
-				CEADC8502F5E8F29000F74EA /* ClaudeLegacy Extension */,
 				CEADC8152F5E8F26000F74EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,7 +122,6 @@
 				CEADC8142F5E8F26000F74EA /* ClaudeLegacy.app */,
 				CEADC8362F5E8F29000F74EA /* ClaudeLegacyTests.xctest */,
 				CEADC8402F5E8F29000F74EA /* ClaudeLegacyUITests.xctest */,
-				CEADC84C2F5E8F29000F74EA /* ClaudeLegacy Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,21 +142,11 @@
 				CEADC82E2F5E8F29000F74EA /* Assets.xcassets */,
 				CEADC82F2F5E8F29000F74EA /* Info.plist */,
 				CE7A75952FA6190100D473F0 /* legacy-transpiler.js */,
+				CEADC85D2F5E8F29000F74EA /* patch.js */,
 				CEFE628A2FA85C95003461AC /* inert.min.js */,
 				CEADC8302F5E8F29000F74EA /* main.m */,
-				CEADC81A2F5E8F26000F74EA /* Resources */,
 			);
 			path = ClaudeLegacy;
-			sourceTree = "<group>";
-		};
-		CEADC81A2F5E8F26000F74EA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CEADC81B2F5E8F26000F74EA /* Main.html */,
-				CEADC81E2F5E8F26000F74EA /* Icon.png */,
-				CEADC8202F5E8F26000F74EA /* Style.css */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		CEADC8392F5E8F29000F74EA /* ClaudeLegacyTests */ = {
@@ -219,32 +166,6 @@
 			path = ClaudeLegacyUITests;
 			sourceTree = "<group>";
 		};
-		CEADC8502F5E8F29000F74EA /* ClaudeLegacy Extension */ = {
-			isa = PBXGroup;
-			children = (
-				CEADC8512F5E8F29000F74EA /* SafariWebExtensionHandler.h */,
-				CEADC8522F5E8F29000F74EA /* SafariWebExtensionHandler.m */,
-				CEADC8652F5E8F29000F74EA /* Info.plist */,
-				CEADC8542F5E8F29000F74EA /* Resources */,
-			);
-			path = "ClaudeLegacy Extension";
-			sourceTree = "<group>";
-		};
-		CEADC8542F5E8F29000F74EA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CEADC8552F5E8F29000F74EA /* _locales */,
-				CEADC8572F5E8F29000F74EA /* images */,
-				CEADC8592F5E8F29000F74EA /* manifest.json */,
-				CEADC85B2F5E8F29000F74EA /* background.js */,
-				CEADC85D2F5E8F29000F74EA /* content.js */,
-				CEADC85F2F5E8F29000F74EA /* popup.html */,
-				CEADC8612F5E8F29000F74EA /* popup.css */,
-				CEADC8632F5E8F29000F74EA /* popup.js */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,7 +181,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CEADC84F2F5E8F29000F74EA /* PBXTargetDependency */,
 			);
 			name = ClaudeLegacy;
 			productName = ClaudeLegacy;
@@ -303,23 +223,6 @@
 			productReference = CEADC8402F5E8F29000F74EA /* ClaudeLegacyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		CEADC84B2F5E8F29000F74EA /* ClaudeLegacy Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CEADC8692F5E8F29000F74EA /* Build configuration list for PBXNativeTarget "ClaudeLegacy Extension" */;
-			buildPhases = (
-				CEADC8482F5E8F29000F74EA /* Sources */,
-				CEADC8492F5E8F29000F74EA /* Frameworks */,
-				CEADC84A2F5E8F29000F74EA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ClaudeLegacy Extension";
-			productName = "ClaudeLegacy Extension";
-			productReference = CEADC84C2F5E8F29000F74EA /* ClaudeLegacy Extension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -340,9 +243,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = CEADC8132F5E8F26000F74EA;
 					};
-					CEADC84B2F5E8F29000F74EA = {
-						CreatedOnToolsVersion = 13.4.1;
-					};
 				};
 			};
 			buildConfigurationList = CEADC80F2F5E8F26000F74EA /* Build configuration list for PBXProject "ClaudeLegacy" */;
@@ -361,7 +261,6 @@
 				CEADC8132F5E8F26000F74EA /* ClaudeLegacy */,
 				CEADC8352F5E8F29000F74EA /* ClaudeLegacyTests */,
 				CEADC83F2F5E8F29000F74EA /* ClaudeLegacyUITests */,
-				CEADC84B2F5E8F29000F74EA /* ClaudeLegacy Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -373,13 +272,11 @@
 			files = (
 				CEFE628B2FA85C95003461AC /* inert.min.js in Resources */,
 				CE123A592F5EDE2C008A1A3A /* Polyfills in Resources */,
-				CEADC81F2F5E8F26000F74EA /* Icon.png in Resources */,
 				CEADC82D2F5E8F26000F74EA /* Main.storyboard in Resources */,
+				E92D5D8E2FC17322005460E8 /* patch.js in Resources */,
 				CEADC82A2F5E8F26000F74EA /* LaunchScreen.storyboard in Resources */,
-				CEADC81D2F5E8F26000F74EA /* Main.html in Resources */,
 				CE7A75962FA6190100D473F0 /* legacy-transpiler.js in Resources */,
 				CEADC8662F5E8F29000F74EA /* Assets.xcassets in Resources */,
-				CEADC8212F5E8F26000F74EA /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,21 +291,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEADC84A2F5E8F29000F74EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEADC85C2F5E8F29000F74EA /* background.js in Resources */,
-				CEADC8622F5E8F29000F74EA /* popup.css in Resources */,
-				CEADC8602F5E8F29000F74EA /* popup.html in Resources */,
-				CEADC8582F5E8F29000F74EA /* images in Resources */,
-				CEADC85A2F5E8F29000F74EA /* manifest.json in Resources */,
-				CEADC8562F5E8F29000F74EA /* _locales in Resources */,
-				CEADC85E2F5E8F29000F74EA /* content.js in Resources */,
-				CEADC8642F5E8F29000F74EA /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,14 +326,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEADC8482F5E8F29000F74EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEADC8532F5E8F29000F74EA /* SafariWebExtensionHandler.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -465,22 +339,9 @@
 			target = CEADC8132F5E8F26000F74EA /* ClaudeLegacy */;
 			targetProxy = CEADC8412F5E8F29000F74EA /* PBXContainerItemProxy */;
 		};
-		CEADC84F2F5E8F29000F74EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CEADC84B2F5E8F29000F74EA /* ClaudeLegacy Extension */;
-			targetProxy = CEADC84E2F5E8F29000F74EA /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CEADC81B2F5E8F26000F74EA /* Main.html */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEADC81C2F5E8F26000F74EA /* Base */,
-			);
-			name = Main.html;
-			sourceTree = "<group>";
-		};
 		CEADC8282F5E8F26000F74EA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -607,64 +468,6 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		CEADC86A2F5E8F29000F74EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R743P2D925;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ClaudeLegacy Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ClaudeLegacy Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mgefimov.ClaudeLegacy.Extension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		CEADC86B2F5E8F29000F74EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R743P2D925;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ClaudeLegacy Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ClaudeLegacy Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mgefimov.ClaudeLegacy.Extension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -810,15 +613,6 @@
 			buildConfigurations = (
 				CEADC8672F5E8F29000F74EA /* Debug */,
 				CEADC8682F5E8F29000F74EA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CEADC8692F5E8F29000F74EA /* Build configuration list for PBXNativeTarget "ClaudeLegacy Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CEADC86A2F5E8F29000F74EA /* Debug */,
-				CEADC86B2F5E8F29000F74EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
