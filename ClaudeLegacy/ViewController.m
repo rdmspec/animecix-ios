@@ -109,7 +109,7 @@
     
     self.view.backgroundColor = [UIColor colorWithDynamicProvider:^UIColor *(UITraitCollection *tc) {
         return tc.userInterfaceStyle == UIUserInterfaceStyleDark
-        ? [UIColor colorWithRed:0x26/255.0 green:0x26/255.0 blue:0x24/255.0 alpha:1.0]   // #262624
+        ? [UIColor colorWithRed:31/255.0 green:31/255.0 blue:30/255.0 alpha:1.0]   // #1f1f1e
         : [UIColor colorWithRed:0xF8/255.0 green:0xF7/255.0 blue:0xF3/255.0 alpha:1.0];  // #F8F7F3
     }];
     
