@@ -7310,6 +7310,28 @@ var LegacyTranspiler = (() => {
 
   // src/transforms/removeLookbehind.ts
   var LOOKBEHIND_RE = /\(\?<[=!]([^()]*(?:\([^()]*\))*[^()]*)\)/g;
+  function stripStringPattern(args) {
+    const pattern = args[0];
+    if (!pattern) return;
+    if (pattern.type === "Literal" && typeof pattern.value === "string") {
+      const stripped = pattern.value.replace(LOOKBEHIND_RE, "");
+      if (stripped === pattern.value) return;
+      pattern.value = stripped;
+      pattern.raw = JSON.stringify(stripped);
+      return;
+    }
+    if (pattern.type === "TemplateLiteral") {
+      for (const quasi of pattern.quasis) {
+        quasi.value.raw = quasi.value.raw.replace(LOOKBEHIND_RE, "");
+        if (quasi.value.cooked != null) {
+          quasi.value.cooked = quasi.value.cooked.replace(LOOKBEHIND_RE, "");
+        }
+      }
+    }
+  }
+  function isRegExpCallee(callee) {
+    return callee.type === "Identifier" && callee.name === "RegExp";
+  }
   var createLookbehindVisitor = () => {
     return {
       Literal(node) {
@@ -7317,6 +7339,12 @@ var LegacyTranspiler = (() => {
           node.regex.pattern = node.regex.pattern.replace(LOOKBEHIND_RE, "");
           node.raw = "/".concat(node.regex.pattern, "/").concat(node.regex.flags);
         }
+      },
+      CallExpression(node) {
+        if (isRegExpCallee(node.callee)) stripStringPattern(node.arguments);
+      },
+      NewExpression(node) {
+        if (isRegExpCallee(node.callee)) stripStringPattern(node.arguments);
       }
     };
   };
@@ -7912,7 +7940,7 @@ var LegacyTranspiler = (() => {
   }
 
   // package.json
-  var version2 = "0.1.7";
+  var version2 = "0.1.9";
 
   // src/index.ts
   var options;

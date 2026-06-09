@@ -19,8 +19,8 @@
 		CEADC8452F5E8F29000F74EA /* ClaudeLegacyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8442F5E8F29000F74EA /* ClaudeLegacyUITests.m */; };
 		CEADC8472F5E8F29000F74EA /* ClaudeLegacyUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEADC8462F5E8F29000F74EA /* ClaudeLegacyUITestsLaunchTests.m */; };
 		CEADC8662F5E8F29000F74EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEADC82E2F5E8F29000F74EA /* Assets.xcassets */; };
+		E90CBB982FD7F58500ED8DC9 /* legacy-transpiler.js in Resources */ = {isa = PBXBuildFile; fileRef = E90CBB972FD7F58500ED8DC9 /* legacy-transpiler.js */; };
 		E92D5D8E2FC17322005460E8 /* patch.js in Resources */ = {isa = PBXBuildFile; fileRef = CEADC85D2F5E8F29000F74EA /* patch.js */; };
-		E92D5DA82FC3241B005460E8 /* legacy-transpiler.js in Resources */ = {isa = PBXBuildFile; fileRef = E92D5DA72FC3241B005460E8 /* legacy-transpiler.js */; };
 		E92D5DAA2FC32429005460E8 /* MediaQueryList.addEventListener.js in Resources */ = {isa = PBXBuildFile; fileRef = E92D5DA92FC32429005460E8 /* MediaQueryList.addEventListener.js */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +76,7 @@
 		CEADC8442F5E8F29000F74EA /* ClaudeLegacyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaudeLegacyUITests.m; sourceTree = "<group>"; };
 		CEADC8462F5E8F29000F74EA /* ClaudeLegacyUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClaudeLegacyUITestsLaunchTests.m; sourceTree = "<group>"; };
 		CEADC85D2F5E8F29000F74EA /* patch.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = patch.js; sourceTree = "<group>"; };
-		E92D5DA72FC3241B005460E8 /* legacy-transpiler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "legacy-transpiler.js"; sourceTree = "<group>"; };
+		E90CBB972FD7F58500ED8DC9 /* legacy-transpiler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "legacy-transpiler.js"; sourceTree = "<group>"; };
 		E92D5DA92FC32429005460E8 /* MediaQueryList.addEventListener.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = MediaQueryList.addEventListener.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +142,7 @@
 				CEADC82E2F5E8F29000F74EA /* Assets.xcassets */,
 				CEADC82F2F5E8F29000F74EA /* Info.plist */,
 				E92D5DA92FC32429005460E8 /* MediaQueryList.addEventListener.js */,
-				E92D5DA72FC3241B005460E8 /* legacy-transpiler.js */,
+				E90CBB972FD7F58500ED8DC9 /* legacy-transpiler.js */,
 				CEADC85D2F5E8F29000F74EA /* patch.js */,
 				CEADC8302F5E8F29000F74EA /* main.m */,
 			);
@@ -270,10 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E90CBB982FD7F58500ED8DC9 /* legacy-transpiler.js in Resources */,
 				CE123A592F5EDE2C008A1A3A /* Polyfills in Resources */,
 				CEADC82D2F5E8F26000F74EA /* Main.storyboard in Resources */,
 				E92D5D8E2FC17322005460E8 /* patch.js in Resources */,
-				E92D5DA82FC3241B005460E8 /* legacy-transpiler.js in Resources */,
 				CEADC82A2F5E8F26000F74EA /* LaunchScreen.storyboard in Resources */,
 				CEADC8662F5E8F29000F74EA /* Assets.xcassets in Resources */,
 				E92D5DAA2FC32429005460E8 /* MediaQueryList.addEventListener.js in Resources */,
@@ -499,7 +499,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mgefimov.ClaudeLegacy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgefimov.ClaudeLegacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,7 +534,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mgefimov.ClaudeLegacy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgefimov.ClaudeLegacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
