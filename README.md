@@ -25,3 +25,5 @@ AnimeciX iOS `WKWebView` içine gömülü bir sitedir fakat uygulamanın tek ama
 |--------|-------------|--------|
 | iPhone 7 Plus | 15.8.8 | Çalışıyor |
 
+
+<img width="198" height="198" alt="resim" src="https://github.com/user-attachments/assets/96038a24-0bdb-413e-b640-208fcb4a78ce" />
