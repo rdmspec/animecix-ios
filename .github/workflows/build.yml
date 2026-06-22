@@ -1,0 +1,30 @@
+name: Build Unsigned IPA
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Make build script executable
+        run: chmod +x build.sh
+
+      - name: Build IPA
+        run: ./build.sh
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Animecix-Unsigned-IPA
+          path: build/output/Animecix.ipa
