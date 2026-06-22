@@ -12,7 +12,7 @@ AnimeciX iOS `WKWebView` içine gömülü bir sitedir fakat uygulamanın tek ama
 
 ## Yükleme
 
-1. En güncel `.ipa`'yı [Releases](https://github.com/rdmspec/animecix-legacy-ios/releases)'dan indirin.
+1. En güncel `.ipa`'yı [Releases](https://github.com/rdmspec/animecix-ios/releases)'dan indirin.
 2. [TrollStore](https://github.com/opa334/TrollStore) ile yükleyin.
    
 ## Çalışma durumu
