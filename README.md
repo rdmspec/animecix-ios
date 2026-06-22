@@ -1,22 +1,23 @@
-# AnimeciX Legacy
+# AnimeciX iOS
 
-> Run [AnimeciX](https://animecix.tv) on iOS — no Android required.
+> [AnimeciX](https://animecix.tv)'i iOS'ta çalıştır.
 
-## How It Works
+## Çalışma Mantığı
 
-AnimeciX Legacy is a lightweight native iOS app that wraps animecix.tv in a `WKWebView`.
+AnimeciX iOS `WKWebView` içine gömülü bir sitedir fakat uygulamanın tek amacı siteyi göstermektir.
 
-## Dependencies
-- [legacy-transpiler](https://github.com/mgefimov/legacy-transpiler) - Fast runtime transpiler for unsupported JS syntax
-- [Polyfills](https://github.com/PoomSmart/Polyfills) - Polyfills for unsupported JS api
+## Gereksinimler
+- [legacy-transpiler](https://github.com/mgefimov/legacy-transpiler)
+- [Polyfills](https://github.com/PoomSmart/Polyfills) - Polyfills (AnimeciX'in Safari'de çalışmayıp Firefox'ta çalışmasının sebebi)
 
-## Installation
+## Yükleme
 
-1. Download the latest `.ipa` from [Releases](https://github.com/rdmspec/animecix-legacy-ios/releases)
-2. Install using [TrollStore](https://github.com/opa334/TrollStore).
-## Compatibility
+1. En güncel `.ipa`'yı [Releases](https://github.com/rdmspec/animecix-legacy-ios/releases)'dan indirin.
+2. [TrollStore](https://github.com/opa334/TrollStore) ile yükleyin.
+   
+## Çalışma durumu
 
-| Device | iOS Version | Status |
+| Cihaz | iOS Sürümü | Durum |
 |--------|-------------|--------|
-| iPhone 7 Plus | 15.8.8 | Working |
+| iPhone 7 Plus | 15.8.8 | Çalışıyor |
 
