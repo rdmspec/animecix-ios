@@ -2,7 +2,9 @@
 
 Buradaki efsane kodun sahibi [mgefimov](https://github.com/mgefimov)'dur. Ben sadece AnimeciX'e uyarladım.
 
-> [AnimeciX](https://animecix.tv)'i iOS'ta çalıştır.
+> [AnimeciX](https://animecix.tv)'i iOS'ta çalıştırır.
+
+<img width="180" height="320" alt="resim" src="https://github.com/user-attachments/assets/5d04e484-3d01-4d21-85ff-3c77de70d424" />
 
 ## Çalışma Mantığı
 
