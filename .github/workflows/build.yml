@@ -26,5 +26,5 @@ jobs:
       - name: Upload IPA Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Animecix-Unsigned-IPA
-          path: build/output/Animecix.ipa
+          name: AnimeciX-Unsigned-IPA
+          path: build/output/AnimeciX.ipa
