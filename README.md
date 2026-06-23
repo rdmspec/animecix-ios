@@ -1,3 +1,5 @@
+[Gemini Legacy](https://github.com/rdmspec/animecix-ios/tree/gemini)
+----------------------------------------
 # AnimeciX iOS
 
 Buradaki efsane kodun sahibi [mgefimov](https://github.com/mgefimov)'dur. Ben sadece AnimeciX'e uyarladım.
