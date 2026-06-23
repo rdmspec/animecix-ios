@@ -26,5 +26,5 @@ jobs:
       - name: Upload IPA Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AnimeciX-Unsigned-IPA
-          path: build/output/AnimeciX.ipa
+          name: Gemini-Unsigned-IPA
+          path: build/output/Gemini.ipa
