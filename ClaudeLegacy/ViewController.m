@@ -130,7 +130,7 @@
     [PolyfillsLoader injectPolyfillsIntoController:_webView.configuration.userContentController];
     [self injectMatchMediaAddEventListener];
     
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://animecix.tv"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://gemini.google.com"]]];
 //    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.1.136:3000"]]];
 }
 
